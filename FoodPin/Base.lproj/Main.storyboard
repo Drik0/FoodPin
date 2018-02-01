@@ -68,6 +68,12 @@
                                         <constraint firstAttribute="trailing" secondItem="nq6-zT-csa" secondAttribute="trailing" id="s4b-7B-r8a"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="locationLabel" destination="Nde-iH-fDi" id="UBo-5f-ksm"/>
+                                    <outlet property="nameLabel" destination="j0Y-ze-tN7" id="QZO-ww-rly"/>
+                                    <outlet property="thumbnailImageView" destination="jcX-cO-ZQP" id="x14-Lg-jgw"/>
+                                    <outlet property="typeLabel" destination="wGG-HD-R7Z" id="I3e-nN-VZS"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
