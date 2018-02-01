@@ -15,6 +15,8 @@ class RestaurantTableTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantTableViewCell
         cell.nameLabel.text = restaurantName[indexPath.row]
         cell.thumbnailImageView.image = UIImage(named: restaurantImages[indexPath.row])
+        /* cell.thumbnailImageView.layer.cornerRadius = 30
+        cell.thumbnailImageView.clipsToBounds = true*/
         return cell
     }
     
