@@ -12,9 +12,9 @@ class RestaurantTableTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "Cell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        cell.textLabel?.text = restaurantName[indexPath.row]
-        cell.imageView?.image = UIImage(named: restaurantImages[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantTableViewCell
+        cell.nameLabel.text = restaurantName[indexPath.row]
+        cell.thumbnailImageView.image = UIImage(named: restaurantImages[indexPath.row])
         return cell
     }
     

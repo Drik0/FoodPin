@@ -25,18 +25,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nq6-zT-csa">
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nq6-zT-csa">
                                             <rect key="frame" x="6" y="2" width="314" height="76"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jcX-cO-ZQP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                    <rect key="frame" x="0.0" y="8" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="Ay3-AQ-J3n"/>
                                                         <constraint firstAttribute="width" constant="60" id="nU7-i8-kjt"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="dsc-ML-Yxi" userLabel="Text Stack View">
-                                                    <rect key="frame" x="70" y="0.0" width="244" height="55.5"/>
+                                                    <rect key="frame" x="70" y="10.5" width="244" height="55.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0Y-ze-tN7">
                                                             <rect key="frame" x="0.0" y="0.0" width="244" height="20.5"/>
