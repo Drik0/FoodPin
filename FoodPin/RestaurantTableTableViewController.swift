@@ -17,10 +17,15 @@ class RestaurantTableTableViewController: UITableViewController {
         cell.locationLabel.text = restaurantLocations[indexPath.row]
         cell.typeLabel.text = restaurantTypes[indexPath.row]
         cell.thumbnailImageView.image = UIImage(named: restaurantImages[indexPath.row])
-        /* cell.thumbnailImageView.layer.cornerRadius = 30
-        cell.thumbnailImageView.clipsToBounds = true*/
+        if restaurantIsVisited[indexPath.row] {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
         return cell
     }
+    
+    var restaurantIsVisited = Array(repeating: false, count: 21)
     
     var restaurantTypes = ["Coffee & Tea Shop", "Cafe", "Tea House", "Austrian / Causual Drink", "French", "Bakery", "Bakery", "Chocolate", "Cafe", "American / Seafood", "American", "American", "Breakfast & Brunch", "Coffee & Tea", "Coffee & Tea", "Latin American", "Spanish", "Spanish", "Spanish", "British", "Thai"]
     
@@ -66,6 +71,7 @@ class RestaurantTableTableViewController: UITableViewController {
         let checkInAction = UIAlertAction(title: "Check in", style: .default, handler: { (action:UIAlertAction!) -> Void in
             let cell = tableView.cellForRow(at: indexPath)
             cell?.accessoryType = .checkmark
+            self.restaurantIsVisited[indexPath.row] = true
         })
         optionMenu.addAction(checkInAction)
     }
