@@ -17,11 +17,7 @@ class RestaurantTableTableViewController: UITableViewController {
         cell.locationLabel.text = restaurantLocations[indexPath.row]
         cell.typeLabel.text = restaurantTypes[indexPath.row]
         cell.thumbnailImageView.image = UIImage(named: restaurantImages[indexPath.row])
-        if restaurantIsVisited[indexPath.row] {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
+        cell.accessoryType = restaurantIsVisited[indexPath.row] ? .checkmark : .none
         return cell
     }
     
@@ -67,17 +63,30 @@ class RestaurantTableTableViewController: UITableViewController {
         
         let callAction = UIAlertAction(title: "Call" + "020-000-\(indexPath.row)", style: .default, handler: callActionHandler)
         optionMenu.addAction(callAction)
-        
-        let checkInAction = UIAlertAction(title: "Check in", style: .default, handler: { (action:UIAlertAction!) -> Void in
+        let title = restaurantIsVisited[indexPath.row] ? "Undo Check In" : "Check In"
+        let checkInAction = UIAlertAction(title: title, style: .default, handler: { (action:UIAlertAction!) -> Void in
             let cell = tableView.cellForRow(at: indexPath)
-            cell?.accessoryType = .checkmark
-            self.restaurantIsVisited[indexPath.row] = true
+            self.restaurantIsVisited[indexPath.row] = self.restaurantIsVisited[indexPath.row] ? false : true
+            cell?.accessoryType = self.restaurantIsVisited[indexPath.row] ? .checkmark : .none
+        
         })
         optionMenu.addAction(checkInAction)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return restaurantName.count
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            restaurantIsVisited.remove(at: indexPath.row)
+            restaurantTypes.remove(at: indexPath.row)
+            restaurantLocations.remove(at: indexPath.row)
+            restaurantName.remove(at: indexPath.row)
+            restaurantImages.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+        
     }
 
     /*
