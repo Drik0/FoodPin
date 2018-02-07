@@ -10,17 +10,6 @@ import UIKit
 
 class RestaurantTableTableViewController: UITableViewController {
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "Cell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantTableViewCell
-        cell.nameLabel.text = restaurantName[indexPath.row]
-        cell.locationLabel.text = restaurantLocations[indexPath.row]
-        cell.typeLabel.text = restaurantTypes[indexPath.row]
-        cell.thumbnailImageView.image = UIImage(named: restaurantImages[indexPath.row])
-        cell.accessoryType = restaurantIsVisited[indexPath.row] ? .checkmark : .none
-        return cell
-    }
-    
     var restaurantIsVisited = Array(repeating: false, count: 21)
     
     var restaurantTypes = ["Coffee & Tea Shop", "Cafe", "Tea House", "Austrian / Causual Drink", "French", "Bakery", "Bakery", "Chocolate", "Cafe", "American / Seafood", "American", "American", "Breakfast & Brunch", "Coffee & Tea", "Coffee & Tea", "Latin American", "Spanish", "Spanish", "Spanish", "British", "Thai"]
@@ -49,6 +38,25 @@ class RestaurantTableTableViewController: UITableViewController {
         return 1
     }
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return restaurantName.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "Cell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantTableViewCell
+        
+        //Configure cell
+        cell.nameLabel.text = restaurantName[indexPath.row]
+        cell.locationLabel.text = restaurantLocations[indexPath.row]
+        cell.typeLabel.text = restaurantTypes[indexPath.row]
+        cell.thumbnailImageView.image = UIImage(named: restaurantImages[indexPath.row])
+        
+        cell.accessoryType = restaurantIsVisited[indexPath.row] ? .checkmark : .none
+        
+        return cell
+    }
+    
 //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
 //        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -73,31 +81,37 @@ class RestaurantTableTableViewController: UITableViewController {
 //        optionMenu.addAction(checkInAction)
 //    }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restaurantName.count
-    }
-    
+    //Delete data from datasource - ****** Not sure why is still neededed after implementing editActionsForRowAt method ******
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+     
         if editingStyle == .delete {
             restaurantIsVisited.remove(at: indexPath.row)
             restaurantTypes.remove(at: indexPath.row)
             restaurantLocations.remove(at: indexPath.row)
             restaurantName.remove(at: indexPath.row)
             restaurantImages.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
         }
+     
+     tableView.deleteRows(at: [indexPath], with: .fade)
     }
     
+    //Add actions buttons when swipe the cell
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        //Adds share button
         let shareAction = UITableViewRowAction(style: .default, title: "Share") { (action, indexPath) -> Void in
+            
             let defaultText = "Just checking in at" + self.restaurantName[indexPath.row]
+            
             if let imageToShare = UIImage(named: self.restaurantImages[indexPath.row]) {
                 let activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
                 self.present(activityController, animated: true, completion: nil)}
             }
 
-        
+        //Adds delete button
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) -> Void in
+            
+            //Delete the content from datasource
                 self.restaurantIsVisited.remove(at: indexPath.row)
                 self.restaurantTypes.remove(at: indexPath.row)
                 self.restaurantLocations.remove(at: indexPath.row)
@@ -105,6 +119,7 @@ class RestaurantTableTableViewController: UITableViewController {
                 self.restaurantImages.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .fade)}
         
+        //Change button background color
         shareAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
         deleteAction.backgroundColor = UIColor(red: 202.0/255.0, green: 202.0/255.0, blue: 203.0/255.0, alpha: 1.0)
         
