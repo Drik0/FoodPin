@@ -126,7 +126,20 @@ class RestaurantTableTableViewController: UITableViewController {
         return [deleteAction, shareAction]
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //Check segue indentifier
+        if segue.identifier == "showRestaurantDetail" {
+            
+            //Retrieve the selected row
+            if let indexPath = tableView.indexPathForSelectedRow {
+                
+                //Set the name of restaurantImage in detailVC, the same of selected row
+                let destinationController = segue.destination as! RestaurantDetailViewController
+                destinationController.restaurantImage = restaurantImages[indexPath.row]
+            }
+        }
+    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
