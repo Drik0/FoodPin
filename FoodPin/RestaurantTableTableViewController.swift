@@ -49,29 +49,29 @@ class RestaurantTableTableViewController: UITableViewController {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        optionMenu.addAction(cancelAction)
-        present(optionMenu, animated: true, completion: nil)
-        
-        let callActionHandler = { (action:UIAlertAction!) -> Void in
-            let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .alert)
-            alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alertMessage, animated: true, completion: nil)
-        }
-        
-        let callAction = UIAlertAction(title: "Call" + "020-000-\(indexPath.row)", style: .default, handler: callActionHandler)
-        optionMenu.addAction(callAction)
-        let title = restaurantIsVisited[indexPath.row] ? "Undo Check In" : "Check In"
-        let checkInAction = UIAlertAction(title: title, style: .default, handler: { (action:UIAlertAction!) -> Void in
-            let cell = tableView.cellForRow(at: indexPath)
-            self.restaurantIsVisited[indexPath.row] = self.restaurantIsVisited[indexPath.row] ? false : true
-            cell?.accessoryType = self.restaurantIsVisited[indexPath.row] ? .checkmark : .none
-        
-        })
-        optionMenu.addAction(checkInAction)
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//        optionMenu.addAction(cancelAction)
+//        present(optionMenu, animated: true, completion: nil)
+//
+//        let callActionHandler = { (action:UIAlertAction!) -> Void in
+//            let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .alert)
+//            alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//            self.present(alertMessage, animated: true, completion: nil)
+//        }
+//
+//        let callAction = UIAlertAction(title: "Call" + "020-000-\(indexPath.row)", style: .default, handler: callActionHandler)
+//        optionMenu.addAction(callAction)
+//        let title = restaurantIsVisited[indexPath.row] ? "Undo Check In" : "Check In"
+//        let checkInAction = UIAlertAction(title: title, style: .default, handler: { (action:UIAlertAction!) -> Void in
+//            let cell = tableView.cellForRow(at: indexPath)
+//            self.restaurantIsVisited[indexPath.row] = self.restaurantIsVisited[indexPath.row] ? false : true
+//            cell?.accessoryType = self.restaurantIsVisited[indexPath.row] ? .checkmark : .none
+//
+//        })
+//        optionMenu.addAction(checkInAction)
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return restaurantName.count
