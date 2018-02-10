@@ -13,6 +13,7 @@
 		3117BD2D202314E400919460 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3117BD2B202314E400919460 /* LaunchScreen.storyboard */; };
 		3117BD352023168000919460 /* RestaurantTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117BD342023168000919460 /* RestaurantTableTableViewController.swift */; };
 		3117BD37202325D700919460 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117BD36202325D700919460 /* RestaurantTableViewCell.swift */; };
+		3135FD7F202F0EA8005B1B2C /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135FD7E202F0EA8005B1B2C /* Restaurant.swift */; };
 		31E645FA202B02FB003C12A4 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E645F9202B02FB003C12A4 /* RestaurantDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		3117BD2E202314E400919460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3117BD342023168000919460 /* RestaurantTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableTableViewController.swift; sourceTree = "<group>"; };
 		3117BD36202325D700919460 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		3135FD7E202F0EA8005B1B2C /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		31E645F9202B02FB003C12A4 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 				3117BD342023168000919460 /* RestaurantTableTableViewController.swift */,
 				3117BD36202325D700919460 /* RestaurantTableViewCell.swift */,
 				31E645F9202B02FB003C12A4 /* RestaurantDetailViewController.swift */,
+				3135FD7E202F0EA8005B1B2C /* Restaurant.swift */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3135FD7F202F0EA8005B1B2C /* Restaurant.swift in Sources */,
 				3117BD23202314E400919460 /* AppDelegate.swift in Sources */,
 				3117BD37202325D700919460 /* RestaurantTableViewCell.swift in Sources */,
 				31E645FA202B02FB003C12A4 /* RestaurantDetailViewController.swift in Sources */,
