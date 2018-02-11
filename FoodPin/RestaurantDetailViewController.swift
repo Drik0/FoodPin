@@ -21,9 +21,9 @@ class RestaurantDetailViewController: UIViewController {
         super.viewDidLoad()
 
         restaurantImageView.image = UIImage(named: restaurant.image)
-        restaurantNameLabel.text = restaurant.name
+        /* restaurantNameLabel.text = restaurant.name
         restaurantLocationLabel.text = restaurant.location
-        restaurantTypeLabel.text = restaurant.type  
+        restaurantTypeLabel.text = restaurant.type */
     }
     
     /*
