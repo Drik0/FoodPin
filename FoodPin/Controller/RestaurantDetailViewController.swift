@@ -10,6 +10,7 @@ import UIKit
 
 class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var restaurantImageView: UIImageView!
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var restaurantLocationLabel: UILabel!
@@ -21,9 +22,8 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         super.viewDidLoad()
 
         restaurantImageView.image = UIImage(named: restaurant.image)
-        /* restaurantNameLabel.text = restaurant.name
-        restaurantLocationLabel.text = restaurant.location
-        restaurantTypeLabel.text = restaurant.type */
+        tableView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)
+        tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.8)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,6 +50,9 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
             cell.fieldLabel.text = ""
             cell.valueLabel.text = ""
         }
+        
+        cell.backgroundColor = UIColor.clear
+        
         return cell
     }
     
