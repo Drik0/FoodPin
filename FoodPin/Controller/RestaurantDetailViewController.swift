@@ -34,7 +34,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         super.viewWillAppear(animated)
         
         navigationController?.hidesBarsOnSwipe = false
-        navigationController?.setToolbarHidden(false, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
