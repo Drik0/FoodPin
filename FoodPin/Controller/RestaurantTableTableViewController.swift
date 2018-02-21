@@ -37,6 +37,8 @@ class RestaurantTableTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.estimatedRowHeight = 80.0
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     override func viewWillAppear(_ animated: Bool) {
