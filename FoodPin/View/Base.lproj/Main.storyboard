@@ -120,16 +120,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vuH-7r-i71">
-                                                    <rect key="frame" x="15" y="7" width="345" height="20.5"/>
+                                                    <rect key="frame" x="15" y="7" width="345" height="21.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="261" verticalHuggingPriority="251" text="Field" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxl-sH-AyP">
-                                                            <rect key="frame" x="0.0" y="0.0" width="115" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="115" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z61-AX-Vnx">
-                                                            <rect key="frame" x="115" y="0.0" width="230" height="20.5"/>
+                                                            <rect key="frame" x="115" y="0.0" width="230" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -141,9 +141,11 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="vuH-7r-i71" firstAttribute="top" secondItem="TAV-ES-a1e" secondAttribute="top" constant="7" id="4vl-lI-IIe"/>
                                                 <constraint firstItem="vuH-7r-i71" firstAttribute="leading" secondItem="TAV-ES-a1e" secondAttribute="leading" constant="15" id="AJL-UP-kEl"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="vuH-7r-i71" secondAttribute="trailing" id="Lq1-mQ-I9N"/>
                                                 <constraint firstItem="vuH-7r-i71" firstAttribute="centerY" secondItem="TAV-ES-a1e" secondAttribute="centerY" id="jXe-M8-jLh"/>
+                                                <constraint firstAttribute="bottom" secondItem="vuH-7r-i71" secondAttribute="bottom" constant="7" id="slF-Su-mFk"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
