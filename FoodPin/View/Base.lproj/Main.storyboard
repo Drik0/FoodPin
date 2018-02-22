@@ -298,6 +298,7 @@
                         <outlet property="backgroundImageView" destination="0PY-bi-ygx" id="Pdh-IR-yll"/>
                         <outlet property="containerImage" destination="eBF-1G-Ak2" id="P7e-Wo-a0Z"/>
                         <outlet property="containerView" destination="QkX-d3-c79" id="Fys-GM-9ZI"/>
+                        <outlet property="crossBtn" destination="eLi-27-lrg" id="dLt-Fw-sPk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOv-Tf-fy0" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -13,6 +13,7 @@ class ReviewViewController: UIViewController {
     @IBOutlet weak var containerImage: UIImageView!
     @IBOutlet var backgroundImageView: UIImageView!
     @IBOutlet var containerView: UIView!
+    @IBOutlet weak var crossBtn: UIButton!
     
     var restaurant: Restaurant!
     
@@ -26,6 +27,8 @@ class ReviewViewController: UIViewController {
         let combineTransform = scaleTransform.concatenating(translateTransform)
         containerView.transform = combineTransform
         
+        crossBtn.transform = CGAffineTransform.init(translationX: 1000, y: 0)
+        
         let blurEffect = UIBlurEffect(style: .dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
@@ -34,6 +37,8 @@ class ReviewViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.2, options: .curveEaseInOut, animations: {self.containerView.transform = CGAffineTransform.identity}, completion: nil)
+        
+        UIView.animate(withDuration: 0.8, animations: {self.crossBtn.transform = CGAffineTransform.identity})
         //UIView.animate(withDuration: 0.3, animations: {self.containerView.transform = CGAffineTransform.identity})
     }
     /*
