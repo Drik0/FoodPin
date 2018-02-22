@@ -288,6 +288,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="0PY-bi-ygx" id="Pdh-IR-yll"/>
+                        <outlet property="containerView" destination="QkX-d3-c79" id="Fys-GM-9ZI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOv-Tf-fy0" userLabel="First Responder" sceneMemberID="firstResponder"/>
