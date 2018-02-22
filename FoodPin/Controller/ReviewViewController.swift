@@ -16,7 +16,10 @@ class ReviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        containerView.transform = CGAffineTransform(scaleX: 0, y: 0)
+        let scaleTransform = CGAffineTransform.init(scaleX: 0, y: 0)
+        let translateTransform = CGAffineTransform.init(translationX: 0, y: -1000)
+        let combineTransform = scaleTransform.concatenating(translateTransform)
+        containerView.transform = combineTransform
         
         let blurEffect = UIBlurEffect(style: .dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -25,7 +28,8 @@ class ReviewViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        UIView.animate(withDuration: 0.3, animations: {self.containerView.transform = CGAffineTransform.identity})
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.2, options: .curveEaseInOut, animations: {self.containerView.transform = CGAffineTransform.identity}, completion: nil)
+        //UIView.animate(withDuration: 0.3, animations: {self.containerView.transform = CGAffineTransform.identity})
     }
     /*
     // MARK: - Navigation
