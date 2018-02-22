@@ -159,11 +159,22 @@
                                     <outlet property="delegate" destination="Byw-8s-aqh" id="XyE-If-FLQ"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RiB-t3-Yku">
+                                <rect key="frame" x="339" y="72" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="Th6-QW-c1d"/>
+                                    <constraint firstAttribute="width" constant="28" id="arX-xT-MBx"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="check"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="U2r-U4-tMD" firstAttribute="trailing" secondItem="RiB-t3-Yku" secondAttribute="trailing" constant="8" id="4VI-Ny-1NL"/>
                             <constraint firstItem="ByH-Gg-DJf" firstAttribute="top" secondItem="U2r-U4-tMD" secondAttribute="top" id="5SC-40-PzG"/>
                             <constraint firstItem="U2r-U4-tMD" firstAttribute="bottom" secondItem="ByH-Gg-DJf" secondAttribute="bottom" id="HhX-h6-kWq"/>
+                            <constraint firstItem="RiB-t3-Yku" firstAttribute="top" secondItem="U2r-U4-tMD" secondAttribute="top" constant="8" id="Q05-Du-BvM"/>
                             <constraint firstItem="ByH-Gg-DJf" firstAttribute="leading" secondItem="U2r-U4-tMD" secondAttribute="leading" id="UJq-Y4-BSw"/>
                             <constraint firstItem="U2r-U4-tMD" firstAttribute="trailing" secondItem="ByH-Gg-DJf" secondAttribute="trailing" id="iI3-4Q-eGP"/>
                         </constraints>
@@ -197,4 +208,7 @@
             <point key="canvasLocation" x="-229" y="150"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="check" width="28" height="28"/>
+    </resources>
 </document>
