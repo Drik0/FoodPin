@@ -45,6 +45,8 @@ class RestaurantTableTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         navigationController?.hidesBarsOnSwipe = true
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     // MARK: - Table view data source

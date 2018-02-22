@@ -30,7 +30,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         tableView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)
         tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.8)
         
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,6 +71,10 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         cell.backgroundColor = UIColor.clear
         
         return cell
+    }
+    
+    @IBAction func close(segue:UIStoryboardSegue) {
+        
     }
     
     /*
