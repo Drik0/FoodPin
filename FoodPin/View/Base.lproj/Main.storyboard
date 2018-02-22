@@ -206,7 +206,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QkX-d3-c79">
                                 <rect key="frame" x="37" y="40" width="301" height="420"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barrafina" translatesAutoresizingMaskIntoConstraints="NO" id="eBF-1G-Ak2">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barrafina" translatesAutoresizingMaskIntoConstraints="NO" id="eBF-1G-Ak2">
                                         <rect key="frame" x="0.0" y="0.0" width="301" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="NNW-WR-wxU"/>
@@ -218,11 +218,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Rgl-0d-But">
-                                        <rect key="frame" x="8" y="287.5" width="285" height="122.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OQ6-f7-XFq">
+                                        <rect key="frame" x="8" y="304" width="285" height="106"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pzy-nK-Im5">
-                                                <rect key="frame" x="79.5" y="0.0" width="126" height="37.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="285" height="32"/>
                                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -232,7 +232,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ia0-qe-bgz">
-                                                <rect key="frame" x="122.5" y="42.5" width="40" height="37.5"/>
+                                                <rect key="frame" x="0.0" y="37" width="285" height="32"/>
                                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -242,7 +242,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAY-lp-low">
-                                                <rect key="frame" x="98" y="85" width="89" height="37.5"/>
+                                                <rect key="frame" x="0.0" y="74" width="285" height="32"/>
                                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -268,18 +268,17 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="eBF-1G-Ak2" firstAttribute="leading" secondItem="QkX-d3-c79" secondAttribute="leading" id="3NP-Q0-ate"/>
-                                    <constraint firstItem="Rgl-0d-But" firstAttribute="top" secondItem="Ob3-bN-ZYP" secondAttribute="bottom" constant="15" id="9jV-AG-aU3"/>
-                                    <constraint firstAttribute="trailing" secondItem="Rgl-0d-But" secondAttribute="trailing" constant="8" id="Bmi-ag-qKC"/>
+                                    <constraint firstAttribute="trailing" secondItem="OQ6-f7-XFq" secondAttribute="trailing" constant="8" id="E9r-H7-uDd"/>
                                     <constraint firstItem="eBF-1G-Ak2" firstAttribute="top" secondItem="QkX-d3-c79" secondAttribute="top" id="Gl8-Jb-Iip"/>
-                                    <constraint firstAttribute="bottom" secondItem="Rgl-0d-But" secondAttribute="bottom" constant="10" id="HNd-AM-Uou"/>
                                     <constraint firstItem="eLi-27-lrg" firstAttribute="top" secondItem="QkX-d3-c79" secondAttribute="top" constant="-13" id="Q3c-mv-SOb"/>
-                                    <constraint firstItem="Rgl-0d-But" firstAttribute="leading" secondItem="QkX-d3-c79" secondAttribute="leading" constant="8" id="R4f-d3-S2P"/>
                                     <constraint firstAttribute="height" constant="420" id="XC3-r6-hp8"/>
+                                    <constraint firstAttribute="bottom" secondItem="OQ6-f7-XFq" secondAttribute="bottom" constant="10" id="gUq-34-Bc0"/>
                                     <constraint firstItem="Ob3-bN-ZYP" firstAttribute="leading" secondItem="QkX-d3-c79" secondAttribute="leading" constant="15" id="gu0-NS-oIc"/>
                                     <constraint firstAttribute="trailing" secondItem="eBF-1G-Ak2" secondAttribute="trailing" id="pmj-Zv-dy8"/>
                                     <constraint firstAttribute="trailing" secondItem="eLi-27-lrg" secondAttribute="trailing" constant="-12" id="pqv-vh-Ok3"/>
                                     <constraint firstItem="Ob3-bN-ZYP" firstAttribute="top" secondItem="eBF-1G-Ak2" secondAttribute="bottom" constant="8" id="qWA-Aq-aJY"/>
                                     <constraint firstAttribute="trailing" secondItem="Ob3-bN-ZYP" secondAttribute="trailing" constant="15" id="qoR-o1-P5b"/>
+                                    <constraint firstItem="OQ6-f7-XFq" firstAttribute="leading" secondItem="QkX-d3-c79" secondAttribute="leading" constant="8" id="tgC-ts-utC"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -297,6 +296,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="0PY-bi-ygx" id="Pdh-IR-yll"/>
+                        <outlet property="containerImage" destination="eBF-1G-Ak2" id="P7e-Wo-a0Z"/>
                         <outlet property="containerView" destination="QkX-d3-c79" id="Fys-GM-9ZI"/>
                     </connections>
                 </viewController>

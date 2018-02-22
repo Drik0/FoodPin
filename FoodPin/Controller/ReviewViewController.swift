@@ -10,11 +10,16 @@ import UIKit
 
 class ReviewViewController: UIViewController {
     
+    @IBOutlet weak var containerImage: UIImageView!
     @IBOutlet var backgroundImageView: UIImageView!
     @IBOutlet var containerView: UIView!
     
+    var restaurant: Restaurant!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        containerImage.image = UIImage(named: restaurant.image)
         
         let scaleTransform = CGAffineTransform.init(scaleX: 0, y: 0)
         let translateTransform = CGAffineTransform.init(translationX: 0, y: -1000)

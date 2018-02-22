@@ -95,6 +95,14 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showReview" {
+            
+            let destinationVC = segue.destination as! ReviewViewController
+            destinationVC.restaurant = restaurant
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
