@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -15,6 +16,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var restaurantLocationLabel: UILabel!
     @IBOutlet weak var restaurantTypeLabel: UILabel!
+    @IBOutlet var mapView: MKMapView!
     
     var restaurant: Restaurant!
     
@@ -30,6 +32,11 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         tableView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)
         tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.8)
         
+        // MARK: - Map
+        
+        let tapGestureRecognizer = UIGestureRecognizer(target: self, action: #selector(showMap))
+        
+        mapView.addGestureRecognizer(tapGestureRecognizer)
         
     }
     
@@ -39,6 +46,8 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         navigationController?.hidesBarsOnSwipe = false
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
+    
+    // MARK: - TableView Configuration
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
@@ -73,6 +82,8 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         return cell
     }
     
+    // TODO: - Rating
+    
     @IBAction func ratingButtonTapped(segue:UIStoryboardSegue) {
         if let rating = segue.identifier {
             
@@ -91,6 +102,8 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         tableView.reloadData()
     }
     
+    // TODO: - Segue
+    
     @IBAction func close(segue:UIStoryboardSegue) {
         
     }
@@ -101,6 +114,10 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
             let destinationVC = segue.destination as! ReviewViewController
             destinationVC.restaurant = restaurant
         }
+    }
+    
+    @objc func showMap() {
+        performSegue(withIdentifier: "showMap", sender: self)
     }
     
     /*

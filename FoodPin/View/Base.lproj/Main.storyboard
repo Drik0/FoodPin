@@ -96,6 +96,32 @@
             </objects>
             <point key="canvasLocation" x="532.5" y="150"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="g8i-AL-BMz">
+            <objects>
+                <viewController id="gMf-pb-sKw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AGD-Wj-xgk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fq1-Rj-y3S">
+                                <rect key="frame" x="0.0" y="0.0" width="359" height="667"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Fq1-Rj-y3S" firstAttribute="trailing" secondItem="AGD-Wj-xgk" secondAttribute="trailingMargin" id="EA8-D3-2He"/>
+                            <constraint firstItem="Fq1-Rj-y3S" firstAttribute="bottom" secondItem="r4b-Lc-qXm" secondAttribute="bottom" id="XH3-kM-aIo"/>
+                            <constraint firstItem="Fq1-Rj-y3S" firstAttribute="leading" secondItem="AGD-Wj-xgk" secondAttribute="leading" id="dvX-NR-wmU"/>
+                            <constraint firstItem="Fq1-Rj-y3S" firstAttribute="top" secondItem="AGD-Wj-xgk" secondAttribute="top" id="omB-bx-KBa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="r4b-Lc-qXm"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I5k-zz-rc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1253.5999999999999" y="-558.17091454272872"/>
+        </scene>
         <!--Restaurant Detail View Controller-->
         <scene sceneID="FWP-OI-oPa">
             <objects>
@@ -111,6 +137,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
+                                <mapView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" id="qPz-so-YHH">
+                                    <rect key="frame" x="0.0" y="364" width="375" height="135"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </mapView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="36" id="r3S-MK-5AG" customClass="RestaurantDetailTableViewCell" customModule="FoodPin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="328" width="375" height="36"/>
@@ -184,8 +214,10 @@
                         <viewLayoutGuide key="safeArea" id="U2r-U4-tMD"/>
                     </view>
                     <connections>
+                        <outlet property="mapView" destination="qPz-so-YHH" id="vE7-OB-Ez0"/>
                         <outlet property="restaurantImageView" destination="PF7-Rw-xZu" id="FC4-bM-FR0"/>
                         <outlet property="tableView" destination="ByH-Gg-DJf" id="2vg-Dv-qhp"/>
+                        <segue destination="gMf-pb-sKw" kind="show" identifier="showMap" id="BH1-ca-2n7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SVn-J5-TN9" userLabel="First Responder" sceneMemberID="firstResponder"/>
