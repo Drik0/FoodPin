@@ -99,7 +99,7 @@
         <!--Map View Controller-->
         <scene sceneID="g8i-AL-BMz">
             <objects>
-                <viewController id="gMf-pb-sKw" userLabel="Map View Controller" sceneMemberID="viewController">
+                <viewController id="gMf-pb-sKw" userLabel="Map View Controller" customClass="MapViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AGD-Wj-xgk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,6 +117,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r4b-Lc-qXm"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="Fq1-Rj-y3S" id="TsN-Yj-uGD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I5k-zz-rc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

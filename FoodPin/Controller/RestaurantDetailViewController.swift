@@ -134,6 +134,10 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
             
             let destinationVC = segue.destination as! ReviewViewController
             destinationVC.restaurant = restaurant
+        } else if segue.identifier == "showMap" {
+            
+            let destinationVC = segue.destination as! MapViewController
+            destinationVC.restaurant = restaurant
         }
     }
     
