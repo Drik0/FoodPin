@@ -19,7 +19,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         
         mapView.delegate = self
-        
+        /*
+        mapView.showsScale = true
+        mapView.showsCompass = true
+        mapView.showsTraffic = true
+        */
         //Convert address to coordinate and annotate it on map
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(restaurant.location, completionHandler: { placemarks, error in
@@ -69,6 +73,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         leftIconView.image = UIImage(named: restaurant.image)
         annotationView?.leftCalloutAccessoryView = leftIconView
+        
+        annotationView?.pinTintColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
         
         return annotationView
     }
