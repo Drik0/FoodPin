@@ -286,9 +286,17 @@
                             <outlet property="delegate" destination="vhp-U8-3d8" id="p3L-Yg-7G7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Wuw-lc-nlw"/>
+                    <navigationItem key="navigationItem" id="Wuw-lc-nlw">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="fCF-8h-Z49">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="afd-62-sTe" kind="unwind" unwindAction="unwindToHomeScreenWithSegue:" id="rXJ-Bo-arl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XeT-hW-B7B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="afd-62-sTe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1471.2" y="912.5937031484259"/>
         </scene>
