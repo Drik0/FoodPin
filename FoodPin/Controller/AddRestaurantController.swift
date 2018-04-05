@@ -8,13 +8,26 @@
 
 import UIKit
 
-class AddRestaurantController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddRestaurantController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet var photoImageView: UIImageView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var typeTextField: UITextField!
+    @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var yesButton: UIButton!
+    @IBOutlet weak var noButton: UIButton!
+    
+    var name = ""
+    var type = ""
+    var location = ""
+    var beenHere: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        nameTextField.delegate = self
+        typeTextField.delegate = self
+        locationTextField.delegate = self
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -53,59 +66,76 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
         dismiss(animated: true, completion: nil)
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    @IBAction func beenHereBtnPressed(_ sender: UIButton) {
+        if sender.tag == 1 {
+            yesButton.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+            noButton.backgroundColor = #colorLiteral(red: 0.7490196078, green: 0.7490196078, blue: 0.7490196078, alpha: 1)
+            beenHere = true
+        } else if sender.tag == 2 {
+            yesButton.backgroundColor = #colorLiteral(red: 0.7490196078, green: 0.7490196078, blue: 0.7490196078, alpha: 1)
+            noButton.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+            beenHere = false
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
+    
+    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        
+        if let tempName = nameTextField.text {
+            name = tempName
+        }
+        if let tempType = typeTextField.text {
+            type = tempType
+        }
+        if let tempLocation = locationTextField.text {
+            location = tempLocation
+        }
+        
+        if name == "" || type == "" || location == "" {
+            errorAlert(message: "One or more fields are empty!")
+        } else {
+            print("""
+                Name: \(name)
+                Type: \(type)
+                Location \(location)
+                Have you been here? = \(beenHere)
+""")
+            successAlert(message: "Restaurant saved successfully!")
+            
+            nameTextField.text = ""
+            typeTextField.text = ""
+            locationTextField.text = ""
+            
+            performSegue(withIdentifier: "unwindToHomeScreen", sender: self)
+        }
+     
+    }
+    
+    func successAlert(message: String) {
+        let alert = UIAlertController(title: "Success", message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(alertAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func errorAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Review", style: .default, handler: nil)
+        alert.addAction(alertAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        switch textField {
+        case nameTextField:
+            typeTextField.becomeFirstResponder()
+        case typeTextField:
+            locationTextField.becomeFirstResponder()
+        default:
+            locationTextField.resignFirstResponder()
+        }
+        
         return true
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

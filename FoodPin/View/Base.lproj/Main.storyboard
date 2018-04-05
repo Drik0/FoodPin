@@ -247,7 +247,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wv-B0-Fwi">
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wv-B0-Fwi">
                                                     <rect key="frame" x="16" y="39" width="44" height="30"/>
                                                     <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -256,13 +256,19 @@
                                                     <state key="normal" title="Yes">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="beenHereBtnPressed:" destination="vhp-U8-3d8" eventType="touchUpInside" id="2JM-u2-u9s"/>
+                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAf-H9-dxK">
+                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAf-H9-dxK">
                                                     <rect key="frame" x="72" y="39" width="44" height="30"/>
-                                                    <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" title="No">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="beenHereBtnPressed:" destination="vhp-U8-3d8" eventType="touchUpInside" id="gyn-5o-gKS"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -288,15 +294,26 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Wuw-lc-nlw">
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="fCF-8h-Z49">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fCF-8h-Z49">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="afd-62-sTe" kind="unwind" unwindAction="unwindToHomeScreenWithSegue:" id="rXJ-Bo-arl"/>
+                                <segue destination="afd-62-sTe" kind="unwind" identifier="unwindToHomeScreen" unwindAction="unwindToHomeScreenWithSegue:" id="rXJ-Bo-arl"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Ru5-oH-7Mw">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="vhp-U8-3d8" id="BnA-fP-i4r"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="locationTextField" destination="IJu-cb-cb8" id="2mg-1J-AZi"/>
+                        <outlet property="nameTextField" destination="iBJ-ji-Dci" id="JF5-7m-u3L"/>
+                        <outlet property="noButton" destination="LAf-H9-dxK" id="p1i-Lg-CZK"/>
                         <outlet property="photoImageView" destination="nov-g4-ftq" id="Ty1-rH-oZF"/>
+                        <outlet property="typeTextField" destination="guW-FV-SeR" id="GuB-bO-JYe"/>
+                        <outlet property="yesButton" destination="8wv-B0-Fwi" id="mMi-2Z-5qe"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XeT-hW-B7B" userLabel="First Responder" sceneMemberID="firstResponder"/>
