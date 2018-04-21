@@ -18,7 +18,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var restaurantTypeLabel: UILabel!
     @IBOutlet var mapView: MKMapView!
     
-    var restaurant: Restaurant!
+    var restaurant: RestaurantMO!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,9 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         tableView.estimatedRowHeight = 36.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        restaurantImageView.image = UIImage(named: restaurant.image)
+        if let restaurantImage = restaurant.image {
+        restaurantImageView.image = UIImage(data: restaurantImage as Data)
+        }
         tableView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)
         tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.8)
         
@@ -39,7 +41,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         
         //Forward Geocoding, Add placemark, annotation
         let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(restaurant.location, completionHandler: { placemarks, error in
+        geoCoder.geocodeAddressString(restaurant.location!, completionHandler: { placemarks, error in
             if let error = error {
                 print(error)
                 return
@@ -92,7 +94,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
             cell.valueLabel.text = restaurant.phone
         case 4:
             cell.fieldLabel.text = "Been here"
-            cell.valueLabel.text = (restaurant.isVisited) ? "Yes, I've been here. \(restaurant.rating)" : "No"
+            cell.valueLabel.text = (restaurant.isVisited) ? "Yes, I've been here. \(restaurant.rating ?? "")" : "No"
         default:
             cell.fieldLabel.text = ""
             cell.valueLabel.text = ""

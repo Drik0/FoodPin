@@ -15,13 +15,15 @@ class ReviewViewController: UIViewController {
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var crossBtn: UIButton!
     
-    var restaurant: Restaurant!
+    var restaurant: RestaurantMO?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        containerImage.image = UIImage(named: restaurant.image)
-        
+        if let restaurantImage = restaurant?.image {
+        containerImage.image = UIImage(data: restaurantImage as Data)
+        }
+            
         let scaleTransform = CGAffineTransform.init(scaleX: 0, y: 0)
         let translateTransform = CGAffineTransform.init(translationX: 0, y: -1000)
         let combineTransform = scaleTransform.concatenating(translateTransform)
