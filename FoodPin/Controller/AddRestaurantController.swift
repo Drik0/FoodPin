@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddRestaurantController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
@@ -17,6 +18,7 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
     @IBOutlet weak var yesButton: UIButton!
     @IBOutlet weak var noButton: UIButton!
     
+    var restaurant: RestaurantMO!
     var name = ""
     var type = ""
     var location = ""
@@ -99,6 +101,24 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
                 Location \(location)
                 Have you been here? = \(beenHere)
 """)
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                restaurant = RestaurantMO(context: appDelegate.persistentContainer.viewContext)
+                restaurant.name = nameTextField.text
+                restaurant.type = typeTextField.text
+                restaurant.location = locationTextField.text
+                restaurant.isVisited = beenHere
+                
+                if let restaurantImage = photoImageView.image {
+                    if let imageData = UIImagePNGRepresentation(restaurantImage) {
+                        restaurant.image = Data(imageData)
+                    }
+                }
+                
+                print("Saving data to context...")
+                appDelegate.saveContext()
+                
+            }
+            
             successAlert(message: "Restaurant saved successfully!")
             
             nameTextField.text = ""
