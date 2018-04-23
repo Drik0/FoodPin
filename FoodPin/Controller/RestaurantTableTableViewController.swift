@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class RestaurantTableTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class RestaurantTableTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchResultsUpdating {
     
     var restaurants: [RestaurantMO] = []
     var fetchResultController: NSFetchedResultsController<RestaurantMO>!
@@ -21,6 +21,9 @@ class RestaurantTableTableViewController: UITableViewController, NSFetchedResult
         
         searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
         
         tableView.estimatedRowHeight = 80.0
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -56,6 +59,15 @@ class RestaurantTableTableViewController: UITableViewController, NSFetchedResult
             }
             return false
         })
+    }
+    
+    // Display Search Results
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            filterContent(for: searchText)
+            tableView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,12 +120,18 @@ class RestaurantTableTableViewController: UITableViewController, NSFetchedResult
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.isActive == true {
+            return searchResults.count
+        } else {
         return restaurants.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "Cell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantTableViewCell
+        
+        let restaurant = (searchController.isActive) ? searchResults[indexPath.row] : restaurants[indexPath.row]
         
         //Configure cell
         cell.nameLabel.text = restaurants[indexPath.row].name
@@ -126,7 +144,14 @@ class RestaurantTableTableViewController: UITableViewController, NSFetchedResult
         
         return cell
     }
-
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if searchController.isActive {
+            return false
+        } else {
+            return true
+        }
+    }
 
     //Delete data from datasource - ****** Not sure why is still neededed after implementing editActionsForRowAt method ******
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -182,7 +207,7 @@ class RestaurantTableTableViewController: UITableViewController, NSFetchedResult
                 
                 //Set the name of restaurantImage in detailVC, the same of selected row
                 let destinationController = segue.destination as! RestaurantDetailViewController
-                destinationController.restaurant = restaurants[indexPath.row]
+                destinationController.restaurant = (searchController.isActive ? searchResults[indexPath.row] : restaurants[indexPath.row])
             }
         }
     }
