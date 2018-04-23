@@ -14,6 +14,7 @@ class RestaurantTableTableViewController: UITableViewController, NSFetchedResult
     var restaurants: [RestaurantMO] = []
     var fetchResultController: NSFetchedResultsController<RestaurantMO>!
     var searchController: UISearchController!
+    var searchResults: [RestaurantMO] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,18 @@ class RestaurantTableTableViewController: UITableViewController, NSFetchedResult
             }
             
         }
+    }
+    
+    // Filter Search
+    
+    func filterContent(for searchText: String) {
+        searchResults = restaurants.filter({ (restaurant) -> Bool in
+            if let name = restaurant.name {
+                let isMatch = name.localizedCaseInsensitiveContains(searchText)
+                return isMatch
+            }
+            return false
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
