@@ -13,9 +13,13 @@ class RestaurantTableTableViewController: UITableViewController, NSFetchedResult
     
     var restaurants: [RestaurantMO] = []
     var fetchResultController: NSFetchedResultsController<RestaurantMO>!
+    var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchController = UISearchController(searchResultsController: nil)
+        tableView.tableHeaderView = searchController.searchBar
         
         tableView.estimatedRowHeight = 80.0
         tableView.rowHeight = UITableViewAutomaticDimension
