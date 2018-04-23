@@ -136,11 +136,17 @@ class RestaurantTableTableViewController: UITableViewController, NSFetchedResult
             }
 
         //Adds delete button
-        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) -> Void in
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) -> Void in
             
-            //Delete the content from datasource
-                self.restaurants.remove(at: indexPath.row)
-                self.tableView.deleteRows(at: [indexPath], with: .fade)}
+            //Delete the content from CoreData
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                let context = appDelegate.persistentContainer.viewContext
+                let restaurantToDelete = self.fetchResultController.object(at: indexPath)
+                context.delete(restaurantToDelete)
+                
+                appDelegate.saveContext()
+            }
+        })
         
         //Change button background color
         shareAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
