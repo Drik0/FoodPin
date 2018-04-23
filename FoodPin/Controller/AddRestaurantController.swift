@@ -15,6 +15,7 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var typeTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var yesButton: UIButton!
     @IBOutlet weak var noButton: UIButton!
     
@@ -22,6 +23,8 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
     var name = ""
     var type = ""
     var location = ""
+    var phoneNumber = ""
+    var imageSelected = false
     var beenHere: Bool = false
     
     override func viewDidLoad() {
@@ -30,9 +33,11 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
         nameTextField.delegate = self
         typeTextField.delegate = self
         locationTextField.delegate = self
+        phoneTextField.delegate = self
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.selectionStyle = .none
         if indexPath.row == 0 {
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
                 let imagePicker = UIImagePickerController()
@@ -43,6 +48,18 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
                 present(imagePicker, animated: true, completion: nil)
             }
         }
+        if nameTextField.isEditing {
+            nameTextField.endEditing(true)
+        }
+        if typeTextField.isEditing {
+            typeTextField.endEditing(true)
+        }
+        if locationTextField.isEditing {
+            locationTextField.endEditing(true)
+        }
+        if phoneTextField.isEditing {
+            phoneTextField.endEditing(true)
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -50,6 +67,7 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
             photoImageView.image = selectedImage
             photoImageView.contentMode = .scaleAspectFill
             photoImageView.clipsToBounds = true
+            imageSelected = true
         }
         
         // Programmatically constraints
@@ -91,21 +109,29 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
         if let tempLocation = locationTextField.text {
             location = tempLocation
         }
+        if let tempNumber = phoneTextField.text {
+            phoneNumber = tempNumber
+        }
         
-        if name == "" || type == "" || location == "" {
+        if name == "" || type == "" || location == "" || phoneNumber == "" {
             errorAlert(message: "One or more fields are empty!")
+        } else if imageSelected == false {
+            errorAlert(message: "Image is missing!")
         } else {
             print("""
                 Name: \(name)
                 Type: \(type)
-                Location \(location)
+                Location: \(location)
+                Phone Number: \(phoneNumber)
                 Have you been here? = \(beenHere)
 """)
+            
             if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
                 restaurant = RestaurantMO(context: appDelegate.persistentContainer.viewContext)
                 restaurant.name = nameTextField.text
                 restaurant.type = typeTextField.text
                 restaurant.location = locationTextField.text
+                restaurant.phone = phoneTextField.text
                 restaurant.isVisited = beenHere
                 
                 if let restaurantImage = photoImageView.image {
@@ -124,6 +150,7 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
             nameTextField.text = ""
             typeTextField.text = ""
             locationTextField.text = ""
+            phoneTextField.text = ""
             
             performSegue(withIdentifier: "unwindToHomeScreen", sender: self)
         }
@@ -151,8 +178,10 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
             typeTextField.becomeFirstResponder()
         case typeTextField:
             locationTextField.becomeFirstResponder()
+        case locationTextField:
+            phoneTextField.becomeFirstResponder()
         default:
-            locationTextField.resignFirstResponder()
+            phoneTextField.resignFirstResponder()
         }
         
         return true
