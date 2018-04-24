@@ -52,6 +52,13 @@ class RestaurantTableTableViewController: UITableViewController, NSFetchedResult
         searchController.searchBar.barTintColor = UIColor(red: 218.0/255.0, green: 100.0/255.0, blue: 70.0/255.0, alpha: 1.0)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if let pageViewController = storyboard?.instantiateViewController(withIdentifier: "WalkthroughController") as? WalkthroughPageViewController {
+            
+            present(pageViewController, animated: true, completion: nil)
+        }
+    }
+    
     // Filter Search
     
     func filterContent(for searchText: String) {

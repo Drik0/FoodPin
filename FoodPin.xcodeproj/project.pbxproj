@@ -22,6 +22,7 @@
 		317993B9208EC2D000BBD085 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317993B8208EC2D000BBD085 /* WalkthroughContentViewController.swift */; };
 		31840EB8205145E2001F588D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31840EB7205145E2001F588D /* MapViewController.swift */; };
 		31E645FA202B02FB003C12A4 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E645F9202B02FB003C12A4 /* RestaurantDetailViewController.swift */; };
+		31FB10EB208EDAA800AE7175 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB10EA208EDAA800AE7175 /* WalkthroughPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		317993B8208EC2D000BBD085 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		31840EB7205145E2001F588D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		31E645F9202B02FB003C12A4 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
+		31FB10EA208EDAA800AE7175 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				3117BD29202314E400919460 /* Assets.xcassets */,
 				3117BD2E202314E400919460 /* Info.plist */,
 				317993B8208EC2D000BBD085 /* WalkthroughContentViewController.swift */,
+				31FB10EA208EDAA800AE7175 /* WalkthroughPageViewController.swift */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				3110F917203EB9FB0001555B /* ReviewViewController.swift in Sources */,
 				3117BD37202325D700919460 /* RestaurantTableViewCell.swift in Sources */,
 				317993B9208EC2D000BBD085 /* WalkthroughContentViewController.swift in Sources */,
+				31FB10EB208EDAA800AE7175 /* WalkthroughPageViewController.swift in Sources */,
 				3101A68B20773EEF00E2ACA2 /* FoodPin.xcdatamodeld in Sources */,
 				313F5F602030F7CB00A1CEE7 /* RestaurantDetailTableViewCell.swift in Sources */,
 				31E645FA202B02FB003C12A4 /* RestaurantDetailViewController.swift in Sources */,
