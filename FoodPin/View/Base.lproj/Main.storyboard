@@ -394,28 +394,51 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="BMk-B6-tm4">
+                                <rect key="frame" x="168" y="610" width="39" height="37"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQc-wk-nGV">
+                                <rect key="frame" x="315" y="607" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="Py1-TH-MAC"/>
+                                    <constraint firstAttribute="height" constant="44" id="gzs-cj-bBp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="forwardButtonTappedWithSender:" destination="V1o-7b-xtd" eventType="touchUpInside" id="2j3-Ka-Doe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.75294117647058822" green="0.22352941176470587" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="tbx-JP-ebw" firstAttribute="centerX" secondItem="hhL-Rf-rhv" secondAttribute="centerX" id="1le-Bs-pHQ"/>
                             <constraint firstItem="tbx-JP-ebw" firstAttribute="top" secondItem="aGK-Uh-gQx" secondAttribute="bottom" constant="8" id="6rz-Lx-e53"/>
+                            <constraint firstItem="BMk-B6-tm4" firstAttribute="centerX" secondItem="dZn-uP-lr8" secondAttribute="centerX" id="IQv-Tu-BDa"/>
+                            <constraint firstItem="dZn-uP-lr8" firstAttribute="bottom" secondItem="BMk-B6-tm4" secondAttribute="bottom" constant="20" id="Mtj-cD-nhC"/>
                             <constraint firstItem="AoO-AC-mPu" firstAttribute="top" secondItem="dZn-uP-lr8" secondAttribute="top" constant="16" id="Qlr-C9-lqO"/>
                             <constraint firstItem="aGK-Uh-gQx" firstAttribute="leading" secondItem="dZn-uP-lr8" secondAttribute="leading" constant="38" id="SJG-iV-wvh"/>
                             <constraint firstItem="aGK-Uh-gQx" firstAttribute="top" secondItem="AoO-AC-mPu" secondAttribute="bottom" constant="8" id="YoO-hm-cTI"/>
                             <constraint firstItem="dZn-uP-lr8" firstAttribute="trailing" secondItem="aGK-Uh-gQx" secondAttribute="trailing" constant="38" id="e0g-e6-xfK"/>
+                            <constraint firstItem="dZn-uP-lr8" firstAttribute="trailing" secondItem="hQc-wk-nGV" secondAttribute="trailing" constant="16" id="gZE-tJ-evQ"/>
                             <constraint firstItem="AoO-AC-mPu" firstAttribute="centerX" secondItem="hhL-Rf-rhv" secondAttribute="centerX" id="wLa-Bz-ddJ"/>
+                            <constraint firstItem="dZn-uP-lr8" firstAttribute="bottom" secondItem="hQc-wk-nGV" secondAttribute="bottom" constant="16" id="xNy-9n-AvO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dZn-uP-lr8"/>
                     </view>
                     <connections>
                         <outlet property="contentImageView" destination="aGK-Uh-gQx" id="skO-L4-br1"/>
                         <outlet property="contentLabel" destination="tbx-JP-ebw" id="Z5L-J2-BVO"/>
+                        <outlet property="forwardButton" destination="hQc-wk-nGV" id="iG4-ly-zi9"/>
                         <outlet property="headingLabel" destination="AoO-AC-mPu" id="mN6-kE-SrY"/>
+                        <outlet property="pageControl" destination="BMk-B6-tm4" id="Si4-cX-PeW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WEW-CS-7vN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1253.5999999999999" y="-1281.4092953523239"/>
+            <point key="canvasLocation" x="1193" y="-1281"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="g8i-AL-BMz">
