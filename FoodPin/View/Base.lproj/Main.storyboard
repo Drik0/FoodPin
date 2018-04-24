@@ -398,11 +398,7 @@
                                 <rect key="frame" x="168" y="610" width="39" height="37"/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQc-wk-nGV">
-                                <rect key="frame" x="315" y="607" width="44" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="Py1-TH-MAC"/>
-                                    <constraint firstAttribute="height" constant="44" id="gzs-cj-bBp"/>
-                                </constraints>
+                                <rect key="frame" x="324" y="618" width="35" height="33"/>
                                 <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
