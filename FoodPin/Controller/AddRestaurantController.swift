@@ -37,7 +37,9 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         tableView.cellForRow(at: indexPath)?.selectionStyle = .none
+        
         if indexPath.row == 0 {
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
                 let imagePicker = UIImagePickerController()
@@ -48,18 +50,7 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
                 present(imagePicker, animated: true, completion: nil)
             }
         }
-        if nameTextField.isEditing {
-            nameTextField.endEditing(true)
-        }
-        if typeTextField.isEditing {
-            typeTextField.endEditing(true)
-        }
-        if locationTextField.isEditing {
-            locationTextField.endEditing(true)
-        }
-        if phoneTextField.isEditing {
-            phoneTextField.endEditing(true)
-        }
+        view.endEditing(true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

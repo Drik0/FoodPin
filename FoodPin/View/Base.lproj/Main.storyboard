@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -354,6 +355,67 @@
                 <exit id="afd-62-sTe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1471.2" y="912.5937031484259"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="8Rz-ss-2rd">
+            <objects>
+                <pageViewController storyboardIdentifier="WalkthroughController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="n6h-W3-eEp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mwA-3A-fE9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="532" y="-1280"/>
+        </scene>
+        <!--Walkthrough Content View Controller-->
+        <scene sceneID="IC2-6W-F3S">
+            <objects>
+                <viewController id="V1o-7b-xtd" customClass="WalkthroughContentViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hhL-Rf-rhv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personalize" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AoO-AC-mPu">
+                                <rect key="frame" x="133" y="36" width="108" height="27"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aGK-Uh-gQx">
+                                <rect key="frame" x="38" y="71" width="299" height="231"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aGK-Uh-gQx" secondAttribute="height" multiplier="299:231" id="zJX-c4-7lw"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pin your favourite restaurants and create your own food guide." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbx-JP-ebw">
+                                <rect key="frame" x="46" y="310" width="282" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="282" id="WBS-0N-0PK"/>
+                                    <constraint firstAttribute="height" constant="64" id="nn5-5O-YCX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.75294117647058822" green="0.22352941176470587" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="tbx-JP-ebw" firstAttribute="centerX" secondItem="hhL-Rf-rhv" secondAttribute="centerX" id="1le-Bs-pHQ"/>
+                            <constraint firstItem="tbx-JP-ebw" firstAttribute="top" secondItem="aGK-Uh-gQx" secondAttribute="bottom" constant="8" id="6rz-Lx-e53"/>
+                            <constraint firstItem="AoO-AC-mPu" firstAttribute="top" secondItem="dZn-uP-lr8" secondAttribute="top" constant="16" id="Qlr-C9-lqO"/>
+                            <constraint firstItem="aGK-Uh-gQx" firstAttribute="leading" secondItem="dZn-uP-lr8" secondAttribute="leading" constant="38" id="SJG-iV-wvh"/>
+                            <constraint firstItem="aGK-Uh-gQx" firstAttribute="top" secondItem="AoO-AC-mPu" secondAttribute="bottom" constant="8" id="YoO-hm-cTI"/>
+                            <constraint firstItem="dZn-uP-lr8" firstAttribute="trailing" secondItem="aGK-Uh-gQx" secondAttribute="trailing" constant="38" id="e0g-e6-xfK"/>
+                            <constraint firstItem="AoO-AC-mPu" firstAttribute="centerX" secondItem="hhL-Rf-rhv" secondAttribute="centerX" id="wLa-Bz-ddJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dZn-uP-lr8"/>
+                    </view>
+                    <connections>
+                        <outlet property="contentImageView" destination="aGK-Uh-gQx" id="skO-L4-br1"/>
+                        <outlet property="contentLabel" destination="tbx-JP-ebw" id="Z5L-J2-BVO"/>
+                        <outlet property="headingLabel" destination="AoO-AC-mPu" id="mN6-kE-SrY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WEW-CS-7vN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1253.5999999999999" y="-1281.4092953523239"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="g8i-AL-BMz">
