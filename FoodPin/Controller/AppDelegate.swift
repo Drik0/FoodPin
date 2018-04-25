@@ -23,9 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor(red: 216.0/255.0, green: 74.0/255.0, blue: 32.0/255.0, alpha: 1.0)
         UINavigationBar.appearance().tintColor = UIColor.white
         
+        UITabBar.appearance().barTintColor = UIColor(red: 236.0/255.0, green: 240.0/255.0, blue: 241.0/255.0, alpha: 1.0)
+        
+        //UITabBar.appearance().selectionIndicatorImage = UIImage(named: "tabitem-selected")
+        
         if let barFont = UIFont(name: "AvenirNextCondensed-DemiBold", size: 24.0) {
             UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: barFont]
         }
+        
         return true
     }
 

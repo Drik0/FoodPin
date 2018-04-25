@@ -20,6 +20,8 @@
 		3142CCA520710B060076E3B4 /* AddRestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3142CCA420710B060076E3B4 /* AddRestaurantController.swift */; };
 		31525FF9204D4FDB0009430C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31525FF8204D4FDB0009430C /* MapKit.framework */; };
 		317993B9208EC2D000BBD085 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317993B8208EC2D000BBD085 /* WalkthroughContentViewController.swift */; };
+		31822FE420903E8900902E81 /* about.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31822FE220903E8900902E81 /* about.storyboard */; };
+		31822FE620903ED800902E81 /* discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31822FE520903ED800902E81 /* discover.storyboard */; };
 		31840EB8205145E2001F588D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31840EB7205145E2001F588D /* MapViewController.swift */; };
 		31E645FA202B02FB003C12A4 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E645F9202B02FB003C12A4 /* RestaurantDetailViewController.swift */; };
 		31FB10EB208EDAA800AE7175 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB10EA208EDAA800AE7175 /* WalkthroughPageViewController.swift */; };
@@ -41,6 +43,8 @@
 		3142CCA420710B060076E3B4 /* AddRestaurantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRestaurantController.swift; sourceTree = "<group>"; };
 		31525FF8204D4FDB0009430C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		317993B8208EC2D000BBD085 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
+		31822FE320903E8900902E81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodPin/View/Base.lproj/about.storyboard; sourceTree = "<group>"; };
+		31822FE520903ED800902E81 /* discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = discover.storyboard; sourceTree = "<group>"; };
 		31840EB7205145E2001F588D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		31E645F9202B02FB003C12A4 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		31FB10EA208EDAA800AE7175 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 		313F5F5D2030F2D900A1CEE7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				31822FE520903ED800902E81 /* discover.storyboard */,
+				31822FE220903E8900902E81 /* about.storyboard */,
 				3117BD26202314E400919460 /* Main.storyboard */,
 				3117BD2B202314E400919460 /* LaunchScreen.storyboard */,
 			);
@@ -196,6 +202,8 @@
 			files = (
 				3117BD2D202314E400919460 /* LaunchScreen.storyboard in Resources */,
 				3117BD2A202314E400919460 /* Assets.xcassets in Resources */,
+				31822FE620903ED800902E81 /* discover.storyboard in Resources */,
+				31822FE420903E8900902E81 /* about.storyboard in Resources */,
 				3117BD28202314E400919460 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,6 +247,14 @@
 				3117BD2C202314E400919460 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		31822FE220903E8900902E81 /* about.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				31822FE320903E8900902E81 /* Base */,
+			);
+			name = about.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
