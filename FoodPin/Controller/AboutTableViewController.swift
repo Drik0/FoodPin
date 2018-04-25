@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class AboutTableViewController: UITableViewController {
     
@@ -54,6 +55,12 @@ class AboutTableViewController: UITableViewController {
                 }
             } else if indexPath.row == 1 {
                 performSegue(withIdentifier: "showWebView", sender: self)
+            }
+        case 1:
+            if let url = URL(string: links[indexPath.row]) {
+                let safaryController = SFSafariViewController(url: url)
+                
+                present(safaryController, animated: true, completion: nil)
             }
         default:
             break
