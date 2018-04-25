@@ -48,17 +48,17 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="About" id="W2I-hy-Gp5"/>
                     <connections>
-                        <segue destination="Nzi-22-JVE" kind="show" identifier="showWebView" id="OiO-g3-eqT"/>
+                        <segue destination="Nzi-22-JVE" kind="show" identifier="showWebView" id="8nZ-de-xil"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iCL-Sj-vNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="710" y="-1358"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="TRl-ff-a6x">
             <objects>
-                <viewController id="Nzi-22-JVE" sceneMemberID="viewController">
+                <viewController id="Nzi-22-JVE" customClass="WebViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gwn-6z-ECG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,7 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BBT-qY-8YW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1390" y="-1358"/>
+            <point key="canvasLocation" x="1566" y="-1359"/>
         </scene>
         <!--About-->
         <scene sceneID="6Qo-Bn-Tym">
